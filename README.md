@@ -42,4 +42,9 @@ High Velocity(5+ transactions in 24h)->+10
      2-less accuracy in smurfing as it requires 10+ transactions in 74hr but real world patters may differ
   
      3-non AI integrated so it is purely rule based and no learning
+8-Teammates
+    1-Ansh Gupta
+    2-Ansh Tyagi
+    3-Anshuman Singh
+    4-Ansh Singh
   
