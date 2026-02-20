@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark forensics theme (default) */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 92%;
+
+    --card: 220 40% 8%;
+    --card-foreground: 210 40% 92%;
+
+    --popover: 220 40% 8%;
+    --popover-foreground: 210 40% 92%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 222 47% 5%;
+
+    --secondary: 220 35% 12%;
+    --secondary-foreground: 210 40% 80%;
+
+    --muted: 220 35% 12%;
+    --muted-foreground: 215 20% 45%;
+
+    --accent: 185 100% 50%;
+    --accent-foreground: 222 47% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 14%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Forensics color tokens */
+    --suspicious: 0 84% 60%;
+    --suspicious-foreground: 0 84% 90%;
+    --fraud-ring: 30 95% 55%;
+    --fraud-ring-foreground: 30 95% 90%;
+    --normal: 142 71% 45%;
+    --normal-foreground: 142 71% 90%;
+    --cyber: 185 100% 50%;
+    --cyber-dim: 185 80% 30%;
+
+    /* Panel & grid */
+    --panel: 220 40% 7%;
+    --panel-border: 220 30% 16%;
+    --grid-line: 220 30% 13%;
+
+    /* Glow effects */
+    --glow-cyan: 0 0 20px hsl(185 100% 50% / 0.3);
+    --glow-red: 0 0 20px hsl(0 84% 60% / 0.4);
+    --glow-orange: 0 0 20px hsl(30 95% 55% / 0.4);
+
+    /* Sidebar */
+    --sidebar-background: 220 40% 7%;
+    --sidebar-foreground: 210 40% 80%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 222 47% 5%;
+    --sidebar-accent: 220 35% 12%;
+    --sidebar-accent-foreground: 210 40% 80%;
+    --sidebar-border: 220 30% 14%;
+    --sidebar-ring: 185 100% 50%;
+  }
+
+  .light-mode {
+    --background: 210 20% 96%;
+    --foreground: 222 47% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 10%;
+
+    --primary: 185 80% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 90%;
+    --secondary-foreground: 222 47% 10%;
+
+    --muted: 210 20% 90%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 185 80% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 214 32% 82%;
+    --input: 214 32% 88%;
+    --ring: 185 80% 35%;
+
+    --panel: 0 0% 100%;
+    --panel-border: 214 32% 82%;
+    --grid-line: 214 32% 90%;
+
+    --glow-cyan: 0 0 10px hsl(185 80% 35% / 0.2);
+    --glow-red: 0 0 10px hsl(0 84% 60% / 0.2);
+    --glow-orange: 0 0 10px hsl(30 95% 55% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Forensics grid background */
+  .forensics-grid {
+    background-image:
+      linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Panel styles */
+  .forensics-panel {
+    background: hsl(var(--panel));
+    border: 1px solid hsl(var(--panel-border));
+    border-radius: var(--radius);
+  }
+
+  /* Glowing border */
+  .glow-border-cyan {
+    border: 1px solid hsl(var(--cyber));
+    box-shadow: var(--glow-cyan), inset 0 0 20px hsl(185 100% 50% / 0.05);
+  }
+
+  .glow-border-red {
+    border: 1px solid hsl(var(--suspicious));
+    box-shadow: var(--glow-red);
+  }
+
+  .glow-border-orange {
+    border: 1px solid hsl(var(--fraud-ring));
+    box-shadow: var(--glow-orange);
+  }
+
+  /* Status badges */
+  .badge-suspicious {
+    background: hsl(var(--suspicious) / 0.15);
+    color: hsl(var(--suspicious-foreground));
+    border: 1px solid hsl(var(--suspicious) / 0.4);
+  }
+
+  .badge-fraud-ring {
+    background: hsl(var(--fraud-ring) / 0.15);
+    color: hsl(var(--fraud-ring-foreground));
+    border: 1px solid hsl(var(--fraud-ring) / 0.4);
+  }
+
+  .badge-normal {
+    background: hsl(var(--normal) / 0.15);
+    color: hsl(var(--normal-foreground));
+    border: 1px solid hsl(var(--normal) / 0.4);
+  }
+
+  .badge-cyber {
+    background: hsl(var(--cyber) / 0.1);
+    color: hsl(var(--cyber));
+    border: 1px solid hsl(var(--cyber) / 0.3);
+  }
+
+  /* Scan line animation */
+  .scan-line {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(185 100% 50% / 0.05), transparent);
+    animation: scan 3s ease-in-out infinite;
+  }
+
+  /* Terminal cursor */
+  .terminal-cursor::after {
+    content: '█';
+    animation: blink 1s step-end infinite;
+    color: hsl(var(--cyber));
+  }
+
+  /* Risk score bar */
+  .risk-bar-fill {
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer utilities {
+  .text-suspicious { color: hsl(var(--suspicious)); }
+  .text-fraud-ring { color: hsl(var(--fraud-ring)); }
+  .text-normal { color: hsl(var(--normal)); }
+  .text-cyber { color: hsl(var(--cyber)); }
+
+  .bg-suspicious { background: hsl(var(--suspicious)); }
+  .bg-fraud-ring { background: hsl(var(--fraud-ring)); }
+  .bg-normal { background: hsl(var(--normal)); }
+  .bg-cyber { background: hsl(var(--cyber)); }
+
+  .border-suspicious { border-color: hsl(var(--suspicious)); }
+  .border-fraud-ring { border-color: hsl(var(--fraud-ring)); }
+  .border-normal { border-color: hsl(var(--normal)); }
+  .border-cyber { border-color: hsl(var(--cyber)); }
+}
+
+/* Animations */
+@keyframes scan {
+  0% { left: -100%; }
+  50% { left: 100%; }
+  100% { left: 100%; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(0 84% 60% / 0.4); }
+  50% { box-shadow: 0 0 0 8px hsl(0 84% 60% / 0); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% { clip-path: inset(0 0 100% 0); }
+  20% { clip-path: inset(33% 0 66% 0); }
+  40% { clip-path: inset(66% 0 33% 0); }
+  60% { clip-path: inset(0 0 33% 0); }
+  80% { clip-path: inset(50% 0 0 0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.4s ease-out forwards;
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+/* Cytoscape graph container */
+#cy {
+  width: 100%;
+  height: 100%;
+  background: hsl(var(--panel));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--cyber) / 0.5);
+}
