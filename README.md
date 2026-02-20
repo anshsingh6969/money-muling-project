@@ -1,7 +1,7 @@
 # money-muling-project
 1-Project title- Money Muling Detection Challenge
 
-2-Live demo URL-https://6997a54077613f268d71ed67--beautiful-cupcake-dd12d5.netlify.app/
+2-Live demo URL- https://6997a54077613f268d71ed67--beautiful-cupcake-dd12d5.netlify.app/
 
 3-Tech Stack used- 
 
@@ -46,6 +46,8 @@ Backend / Services: Data storage, third-party APIs, authentication, etc.
      2-less accuracy in smurfing as it requires 10+ transactions in 74hr but real world patters may differ
   
      3-non AI integrated so it is purely rule based and no learning
+     
+     4-Cannot handel lagrge database and may hinder the performance and cause crash of site
 8-Teammates
 
     1-Ansh Gupta
