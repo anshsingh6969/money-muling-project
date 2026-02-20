@@ -37,9 +37,9 @@ High Velocity(5+ transactions in 24h)->+10
 
 7-Known Limitations-
   
-  1-Old data gets lost once site gets refreshed
+     1-Old data gets lost once site gets refreshed
   
-  2-less accuracy in smurfing as it requires 10+ transactions in 74hr but real world patters may differ
+     2-less accuracy in smurfing as it requires 10+ transactions in 74hr but real world patters may differ
   
-  3-non AI integrated so it is purely rule based and no learning
+     3-non AI integrated so it is purely rule based and no learning
   
